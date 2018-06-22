@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta name="description" content="Gráficos con R">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-05-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="graficos-basicos-en-el-analisis-de-datos.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html"><i class="fa fa-check"></i><b>1</b> Gráficos básicos en el análisis de datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#distribucion-de-una-variable"><i class="fa fa-check"></i><b>1.1</b> Distribución de una variable</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#histograma"><i class="fa fa-check"></i><b>1.1.1</b> Histograma</a></li>
+<li class="chapter" data-level="1.1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-caja-boxplot"><i class="fa fa-check"></i><b>1.1.2</b> Diagrama de caja (boxplot)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-barras"><i class="fa fa-check"></i><b>1.1.3</b> Diagrama de barras</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#relacion-entre-dos-variables"><i class="fa fa-check"></i><b>1.2</b> Relación entre dos variables</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-dispersion"><i class="fa fa-check"></i><b>1.2.1</b> Diagrama de dispersión</a></li>
+<li class="chapter" data-level="1.2.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#dotchart"><i class="fa fa-check"></i><b>1.2.2</b> Dotchart</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html"><i class="fa fa-check"></i><b>2</b> Gráficos avanzados</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#elementos-de-un-grafico-en-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Elementos de un gráfico en <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.1.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#datos"><i class="fa fa-check"></i><b>2.1.1</b> Datos</a></li>
+<li class="chapter" data-level="2.1.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#esteticas-aes"><i class="fa fa-check"></i><b>2.1.2</b> Estéticas (<code>aes</code>)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#capas-geoms"><i class="fa fa-check"></i><b>2.1.3</b> Capas (<code>geoms</code>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#facetas"><i class="fa fa-check"></i><b>2.1.4</b> Facetas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#toque-final"><i class="fa fa-check"></i><b>2.2</b> Toque final</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#etiquetas"><i class="fa fa-check"></i><b>2.2.1</b> Etiquetas</a></li>
+<li class="chapter" data-level="2.2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#escalas"><i class="fa fa-check"></i><b>2.2.2</b> Escalas</a></li>
+<li class="chapter" data-level="2.2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#temas"><i class="fa fa-check"></i><b>2.2.3</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#exportacion-de-los-graficos"><i class="fa fa-check"></i><b>2.3</b> Exportación de los graficos</a></li>
+<li class="chapter" data-level="2.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#introduccion-a-ggmap"><i class="fa fa-check"></i><b>2.4</b> Introducción a ggmap</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-ejemplos-de-mapas-con-puntos"><i class="fa fa-check"></i><b>2.4.1</b> Más ejemplos de mapas con puntos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-alla-de-los-puntos-densidades-y-poligonos"><i class="fa fa-check"></i><b>2.4.2</b> Más allá de los puntos: densidades y poligonos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#extension-dinamica-de-los-graficos"><i class="fa fa-check"></i><b>2.5</b> Extensión dinamica de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html"><i class="fa fa-check"></i><b>3</b> Rmarkdown y shiny</a><ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Rmarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown-en-15-mn"><i class="fa fa-check"></i><b>3.1.1</b> Rmarkdown en 15 mn</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#elementos-de-un-documento-rmarkdown"><i class="fa fa-check"></i><b>3.1.2</b> Elementos de un documento Rmarkdown</a></li>
+<li class="chapter" data-level="3.1.3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#tablas-con-rmarkdown"><i class="fa fa-check"></i><b>3.1.3</b> Tablas con Rmarkdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#shiny"><i class="fa fa-check"></i><b>3.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Gráficos con R</h1>
+<h4 class="author"><em>Olivier Nuñez</em></h4>
+<h4 class="date"><em>2018-05-30</em></h4>
+</div>
+<div id="preambulo" class="section level1 unnumbered">
+<h1>Preámbulo</h1>
+<blockquote>
+<p>“Una imagen vale más que mil palabras” (“Un bon croquis vaut mieux qu’un long discours”)</p>
+<p>— Napoleon</p>
+</blockquote>
+<ul>
+<li><p>La representación gráfica de los datos es una potente herramienta de síntesis de la información estadística.</p></li>
+<li><p>Cualquiera que sea la etapa de su trabajo (exploración, modelización, confirmación o comunicación de resultados), el usuario de métodos estadísticos encuentra en los gráficos un aliado para ahorrar tiempo.</p></li>
+<li><p>El objetivo de esta sesión es manejar el paquete <code>ggplot2</code> de R y sus extensiones que permiten un diseño eficiente de gráficos para explorar la distribución de un conjunto de datos. Se abordarán los distintos pasos, que van desde la preparación de los datos hasta su exportación.</p></li>
+<li>La estructura de esta sesión tiene tres partes:
+<ul>
+<li>La primera parte está dedicada a la definición y elaboración de las representaciones gráficas más comunes (diagrama de barras, de caja, de dispersión, histograma) para extraer la información contenida en un conjunto de datos.</li>
+<li>La segunda parte describe la “gramática” general de confección de gráficos utilizada en <code>ggplot2</code>. Esta gramática permite tratar de manera sistemática y flexible, aspectos básicos como la elección de los ejes, los colores y la leyenda. Pero también, temas avanzados como el problema de solapamiento de puntos, la superposición de varios elementos gráficos (capas) o el desglose de una representación en varios sub-gráficos (facetas).</li>
+<li>En la ultima parte, se presentarán las herramientas para insertar esta información gráfica en informes estáticos, dinámicos o automatizados, mediante los paquetes <code>Rmarkdown</code> y <code>Shiny</code>.</li>
+</ul></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="graficos-basicos-en-el-analisis-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["graficosConR.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
