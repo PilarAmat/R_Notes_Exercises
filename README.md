@@ -1,1 +1,1 @@
-# R_Notes_Exercises from KSchool Classes and other online sources.
+# R_Notes_Exercises from KSchool Classes and DataCamp
